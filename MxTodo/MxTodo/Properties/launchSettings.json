@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MxTodo": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

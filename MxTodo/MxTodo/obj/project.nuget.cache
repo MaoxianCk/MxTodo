@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "H6VOlilUIMGi/aSNTg7W/1Nv//9HlNsjlV+zwCg13KlfcPOufD/q2588gWXbpuM/uDZ4KCcbFxL+0a+BmT8+yg==",
+  "success": true,
+  "projectFilePath": "G:\\DATE\\GIT\\MxTodo\\MxTodo\\MxTodo\\MxTodo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Maoxian\\.nuget\\packages\\mstest.testframework\\2.1.2\\mstest.testframework.2.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
