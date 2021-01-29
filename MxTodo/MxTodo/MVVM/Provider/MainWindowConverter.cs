@@ -11,7 +11,6 @@ namespace MxTodo.MVVM.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Debug.WriteLine(1);
             if (typeof(DateTime) == value?.GetType())
             {
                 return ((DateTime)value).ToString(Config.MxProperty.ClockFormat.Value);
@@ -21,7 +20,6 @@ namespace MxTodo.MVVM.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Debug.WriteLine(1);
             return value;
         }
     }
