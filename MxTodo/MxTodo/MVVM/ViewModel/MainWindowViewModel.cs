@@ -10,6 +10,9 @@ namespace MxTodo
 {
     class MainWindowViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// 返回当前时间
+        /// </summary>
         public DateTime NowTime
         {
             get
