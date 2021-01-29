@@ -67,7 +67,10 @@ namespace MxTodo.Config
         /// </summary>
         public T Value
         {
-            get => value ?? DefaultValue;
+            get
+            {
+                return value ?? DefaultValue;
+            }
             set
             {
                 this.value = value;
