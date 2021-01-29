@@ -15,12 +15,14 @@ namespace MxTodo.Config
         public static PropertyDetail<bool> ShowClock { get; }
 
         public static PropertyDetail<string> ClockFormat { get; }
-
+        public static PropertyDetail<string> ClockDateFormat { get; }
 
         static MxProperty()
         {
             ShowClock = new PropertyDetail<bool>(nameof(ShowClock), true, "显示时间", false, true);
-            ClockFormat = new PropertyDetail<string>(nameof(ClockFormat), "hh:mm:ss", "时间格式", false, false);
+            ClockFormat = new PropertyDetail<string>(nameof(ClockFormat), "HH:mm", "时间格式", false, false);
+            ClockDateFormat = new PropertyDetail<string>(nameof(ClockFormat), "yyyy.MM.dd, dddd", "时间格式", false, false);
+
         }
     }
 

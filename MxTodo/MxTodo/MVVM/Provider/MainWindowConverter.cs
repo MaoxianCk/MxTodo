@@ -13,7 +13,14 @@ namespace MxTodo.MVVM.Converter
         {
             if (typeof(DateTime) == value?.GetType())
             {
-                return ((DateTime)value).ToString(Config.MxProperty.ClockFormat.Value);
+                if ("date".Equals(parameter))
+                {
+                    return ((DateTime)value).ToString(Config.MxProperty.ClockDateFormat.Value);
+                }
+                else
+                {
+                    return ((DateTime)value).ToString(Config.MxProperty.ClockFormat.Value);
+                }
             }
             return value;
         }
