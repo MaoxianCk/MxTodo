@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace MxTodo.Config
 {
@@ -17,12 +14,14 @@ namespace MxTodo.Config
         public static PropertyDetail<string> ClockFormat { get; }
         public static PropertyDetail<string> ClockDateFormat { get; }
 
+        public static PropertyDetail<string> DbPath { get; }
+
         static MxProperty()
         {
             ShowClock = new PropertyDetail<bool>(nameof(ShowClock), true, "显示时间", false, true);
             ClockFormat = new PropertyDetail<string>(nameof(ClockFormat), "HH:mm", "时间格式", false, false);
             ClockDateFormat = new PropertyDetail<string>(nameof(ClockFormat), "yyyy.MM.dd, dddd", "时间格式", false, false);
-
+            DbPath = new PropertyDetail<string>(nameof(DbPath), Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "MxTodo.db"), "数据库路径", false, false);
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MxTodo.Common;
+using MxTodo.MVVM.Model.Todo;
 using System;
-using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace MxTodo
@@ -13,9 +13,8 @@ namespace MxTodo
             InitNowTimeTimer();
         }
 
-
-
         #region NowTime 当前时间
+
         private DispatcherTimer nowTimeTimer;
 
         private void InitNowTimeTimer()
@@ -46,10 +45,13 @@ namespace MxTodo
         {
             OnPropertyChanged(nameof(NowTime));
         }
-        #endregion
+
+        #endregion NowTime 当前时间
 
         #region 当前时间字体大小
+
         private int timeFontSize;
+
         public int TimeFontSize
         {
             get
@@ -62,10 +64,11 @@ namespace MxTodo
                 OnPropertyChanged(nameof(TimeFontSize));
             }
         }
-        #endregion
 
-        #region
+        #endregion 当前时间字体大小
 
+        #region TodoList
+        public TodoInfo todoInfo = TodoInfo.getInstance();
         #endregion
     }
 }

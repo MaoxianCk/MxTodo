@@ -1,25 +1,29 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MxTodo.MVVM.Model
+namespace MxTodo.MVVM.Model.Todo
 {
     /// <summary>
-    /// TODO 任务项
+    /// TODO 任务项, 同时也是数据库表结构
     /// </summary>
     public class TodoItem
     {
+        private int id;
         private string content;
-        private byte status;
+        private TodoStatus status;
         private DateTime createTime;
         private int sortIndex;
 
-        public TodoItem(string content, byte status = 0, int sortIndex = int.MaxValue) :
+        public TodoItem()
+        {
+        }
+
+        public TodoItem(string content, TodoStatus status = 0, int sortIndex = int.MaxValue) :
             this(content, status, sortIndex, DateTime.Now)
         { }
 
-        public TodoItem(string content, byte status, int sortIndex, DateTime createTime)
+        public TodoItem(string content, TodoStatus status, int sortIndex, DateTime createTime)
         {
             Assert.IsFalse(string.IsNullOrWhiteSpace(content));
             Assert.IsNotNull(createTime);
@@ -31,15 +35,20 @@ namespace MxTodo.MVVM.Model
         }
 
         /// <summary>
+        /// id
+        /// </summary>
+        [PrimaryKey, AutoIncrement]
+        public int Id { get => id; set => id = value; }
+
+        /// <summary>
         /// todo内容
         /// </summary>
         public string Content { get => content; set => content = value; }
 
         /// <summary>
         /// 状态
-        /// 0:未完成,1:完成,2:删除
         /// </summary>
-        public byte Status { get => status; set => status = value; }
+        public int Status { get => (int)status; set => status = (TodoStatus)value; }
 
         /// <summary>
         /// 创建时间
