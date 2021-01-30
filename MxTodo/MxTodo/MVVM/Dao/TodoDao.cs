@@ -12,5 +12,20 @@ namespace MxTodo.MVVM.Dao
         {
             return DbHelper.Select<TodoItem>("select * from TodoItem where Status = ?", status);
         }
+
+        public static void add(TodoItem item)
+        {
+            DbHelper.Insert(item);
+        }
+
+        public static void modify(TodoItem item)
+        {
+            DbHelper.Update(item);
+        }
+
+        public static void delete(TodoItem item)
+        {
+            DbHelper.Delete(item);
+        }
     }
 }

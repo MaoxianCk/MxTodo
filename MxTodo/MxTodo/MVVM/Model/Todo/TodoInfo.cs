@@ -12,9 +12,9 @@ namespace MxTodo.MVVM.Model.Todo
 
         public TodoStatus NowStatus { get { return nowStatus; } }
 
-        private static TodoInfo instance = new TodoInfo();
+        private static readonly TodoInfo instance = new TodoInfo();
 
-        public static TodoInfo getInstance()
+        public static TodoInfo GetInstance()
         {
             return instance;
         }
@@ -48,7 +48,7 @@ namespace MxTodo.MVVM.Model.Todo
         /// <summary>
         /// 根据状态更新对应的列表
         /// </summary>
-        /// <param name="status">需要更新displayList为什么状态</param>
+        /// <param name="status">需要更新displayList至某状态</param>
         public void UpdateList(TodoStatus status)
         {
             displayList = TodoDao.selectByStatus(status);

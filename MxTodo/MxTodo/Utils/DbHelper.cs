@@ -7,12 +7,6 @@ using System.Diagnostics;
 
 namespace MxTodo.Utils
 {
-    public class Test
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public DateTime Time { get; set; }
-    }
     public class DbHelper
     {
         private readonly static object initLock = new object();
@@ -29,10 +23,9 @@ namespace MxTodo.Utils
             Debug.WriteLine(string.Format("[DB]: create connection => db path:{0}", connstr));
             CreateTableResult res = db.CreateTable<TodoItem>();
             Debug.Write(string.Format("[DB]: create table => res: {0}", res.ToString()));
-            db.CreateTable<Test>();
         }
 
-        private static SQLiteConnection Db
+        public static SQLiteConnection Db
         {
             get
             {

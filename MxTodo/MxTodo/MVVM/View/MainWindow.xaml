@@ -31,5 +31,8 @@
         <Label x:Name="TimeLabel" Grid.Row="0" Margin="10,10,0,0" Content="{Binding NowTime, Converter={StaticResource MainWindowConverter}, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" FontSize="56" Foreground="White" Background="{x:Null}" Opacity="1" FontWeight="Thin" Padding="0,0,0,0" />
         <Label x:Name="DateLabel" Grid.Row="0" Padding="20,0,0,10" Content="{Binding NowTime, Converter={StaticResource MainWindowConverter}, ConverterParameter=date, Mode=OneWay}" VerticalAlignment="Bottom" Foreground="#FFF3F3F3" />
         <!--第二行-->
+        <StackPanel x:Name="TodoListPanel" Grid.Row="1">
+            
+        </StackPanel>
     </Grid>
 </Window>
