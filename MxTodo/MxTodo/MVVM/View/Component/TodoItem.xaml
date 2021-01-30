@@ -25,13 +25,13 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <!--第一列-->
-        <Label Grid.Column="0" Content="●" FontSize="16" HorizontalAlignment="Center" />
+        <Label Grid.Column="0" Content="●" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" />
         
         <!--第二列-->
-        <TextBox Grid.Column="1" Text="123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456" FontSize="16" VerticalContentAlignment="Top" BorderBrush="{x:Null}" Background="#FFFFB2B2" BorderThickness="0" TextWrapping="Wrap" />
+        <TextBox Grid.Column="1" Text="111" FontSize="16" VerticalContentAlignment="Center" BorderBrush="{x:Null}" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Background="{x:Null}" />
 
         <!--第三列-->
-        <Button Grid.Column="2" Width="20" Height="20" Template="{StaticResource RoundButton}" Background="#FF0CD80C" BorderThickness="0" />
+        <Button Grid.Column="2" Width="16" Height="16" Template="{StaticResource RoundButton}" Background="#FF0CD80C" BorderThickness="0" Margin="7,0,0,0" />
 
 
     </Grid>
