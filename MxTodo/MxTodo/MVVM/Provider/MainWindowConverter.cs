@@ -22,6 +22,10 @@ namespace MxTodo.MVVM.Converter
                     return ((DateTime)value).ToString(Config.MxProperty.ClockFormat.Value);
                 }
             }
+            else if ("TodoItemWidth".Equals(parameter))
+            {
+                return Math.Max(1, (double)value - 4);
+            }
             return value;
         }
 

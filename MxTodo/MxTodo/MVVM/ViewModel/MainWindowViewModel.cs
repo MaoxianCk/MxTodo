@@ -68,7 +68,14 @@ namespace MxTodo
         #endregion 当前时间字体大小
 
         #region TodoList
-        public TodoInfo todoInfo = TodoInfo.GetInstance();
+        public TodoInfo TodoInfo
+        {
+            get
+            {
+                return TodoInfo.GetInstance();
+            }
+        }
+
         #endregion
     }
 }

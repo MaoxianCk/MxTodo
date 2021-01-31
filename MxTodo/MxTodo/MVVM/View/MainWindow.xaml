@@ -1,12 +1,16 @@
-﻿<Window
+﻿<Window xmlns:Component="clr-namespace:MxTodo.MVVM.View.Component" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:MxTodo="clr-namespace:MxTodo" xmlns:Converter="clr-namespace:MxTodo.MVVM.Converter" x:Class="MxTodo.MVVM.View.MainWindow"
-        Title="MxTodo" Height="300" Width="250"
-        AllowsTransparency="True" WindowStyle="None" MinWidth="250" MinHeight="300"
-    ResizeMode="NoResize">
+        xmlns:MxTodo="clr-namespace:MxTodo"
+        xmlns:Converter="clr-namespace:MxTodo.MVVM.Converter"
+        xmlns:local="clr-namespace:MxTodo.MVVM.View"
+        x:Class="MxTodo.MVVM.View.MainWindow"
+        Title="MxTodo"
+        AllowsTransparency="True" WindowStyle="None" 
+        MinWidth="250" MinHeight="300"
+        Width="250" Height="300">
     <Window.Resources>
         <Converter:MainWindowConverter x:Key="MainWindowConverter" />
     </Window.Resources>
@@ -22,17 +26,29 @@
         <SolidColorBrush Opacity="0.3" Color="Black" />
     </Window.Background>
 
-    <Grid ShowGridLines="True">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
-            <RowDefinition />
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <!--第一行-->
         <Label x:Name="TimeLabel" Grid.Row="0" Margin="10,10,0,0" Content="{Binding NowTime, Converter={StaticResource MainWindowConverter}, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" FontSize="56" Foreground="White" Background="{x:Null}" Opacity="1" FontWeight="Thin" Padding="0,0,0,0" />
         <Label x:Name="DateLabel" Grid.Row="0" Padding="20,0,0,10" Content="{Binding NowTime, Converter={StaticResource MainWindowConverter}, ConverterParameter=date, Mode=OneWay}" VerticalAlignment="Bottom" Foreground="#FFF3F3F3" />
         <!--第二行-->
-        <StackPanel x:Name="TodoListPanel" Grid.Row="1">
-            
-        </StackPanel>
+        <ListView x:Name="TodoListView" Grid.Row="1" ItemsSource="{Binding TodoInfo.DisplayList}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch" MaxWidth="{Binding Width, Converter={StaticResource MainWindowConverter}, ConverterParameter=TodoItemWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}, ValidatesOnNotifyDataErrors=True}">
+                        <Component:TodoItem Foreground="White" HorizontalAlignment="Stretch" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </Window>
